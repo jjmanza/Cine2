@@ -1,0 +1,21 @@
+<%-- Document : index.jsp Created on : 14-ene-2016, 10:03:12 Author : ppblanchleiva --%> 
+<%@page import="java.sql.SQLException"%> 
+<%@page import="java.sql.ResultSet"%> 
+<%@page import="java.sql.Statement"%> 
+<%@page import="java.sql.Connection"%> 
+<%@page import="javax.sql.DataSource"%> 
+<%@page import="javax.naming.Context"%> 
+<%@page import="javax.naming.InitialContext"%> 
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+Hello World!
+<% Context initCtx = new InitialContext(); 
+DataSource ds = (DataSource)initCtx.lookup("jdbc/sakila");
+Connection conexion = ds.getConnection(); 
+Statement stmt = null; String query = "select title from film"; 
+try { stmt = conexion.createStatement(); 
+ResultSet rs = stmt.executeQuery(query); 
+while (rs.next()) { String title = rs.getString("title"); 
+out.println(title+""); } 
+} catch (SQLException e ) 
+{ out.println(e.getMessage()); } 
+finally { if (stmt != null) { stmt.close(); } } %> 

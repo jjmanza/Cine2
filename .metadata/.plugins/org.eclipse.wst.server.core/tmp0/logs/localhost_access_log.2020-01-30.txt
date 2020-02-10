@@ -1,0 +1,17 @@
+127.0.0.1 - - [30/Jan/2020:12:16:08 +0100] "GET / HTTP/1.1" 404 637
+127.0.0.1 - - [30/Jan/2020:12:16:09 +0100] "GET /holaMundoTomcat/prueba.html HTTP/1.1" 200 908
+127.0.0.1 - - [30/Jan/2020:12:16:47 +0100] "GET /holaMundoTomcat/prueba.jsp HTTP/1.1" 500 2086
+127.0.0.1 - - [30/Jan/2020:12:17:17 +0100] "GET /holaMundoTomcat/prueba.jsp HTTP/1.1" 200 235
+127.0.0.1 - - [30/Jan/2020:12:17:56 +0100] "GET / HTTP/1.1" 404 637
+127.0.0.1 - - [30/Jan/2020:12:18:04 +0100] "GET /holaMundoTomcat/prueba.jsp HTTP/1.1" 200 235
+127.0.0.1 - - [30/Jan/2020:12:18:05 +0100] "GET /holaMundoTomcat/prueba.jsp HTTP/1.1" 200 235
+127.0.0.1 - - [30/Jan/2020:12:18:05 +0100] "GET /holaMundoTomcat/prueba.jsp HTTP/1.1" 200 235
+127.0.0.1 - - [30/Jan/2020:12:18:24 +0100] "GET / HTTP/1.1" 404 637
+127.0.0.1 - - [30/Jan/2020:12:18:26 +0100] "GET /holaMundoTomcat/prueba.jsp HTTP/1.1" 200 238
+127.0.0.1 - - [30/Jan/2020:12:18:26 +0100] "GET /holaMundoTomcat/prueba.jsp HTTP/1.1" 200 238
+127.0.0.1 - - [30/Jan/2020:12:19:21 +0100] "GET / HTTP/1.1" 404 637
+127.0.0.1 - - [30/Jan/2020:12:19:24 +0100] "GET /holaMundoTomcat/prueba.jsp HTTP/1.1" 200 233
+127.0.0.1 - - [30/Jan/2020:12:45:11 +0100] "GET /holaMundoTomcat/index.jsp HTTP/1.1" 200 233
+127.0.0.1 - - [30/Jan/2020:12:49:44 +0100] "GET /holaMundoTomcat/index.jsp HTTP/1.1" 200 238
+127.0.0.1 - - [30/Jan/2020:12:50:15 +0100] "GET / HTTP/1.1" 404 637
+127.0.0.1 - - [30/Jan/2020:12:50:23 +0100] "GET /holaMundoTomcat/index.jsp HTTP/1.1" 200 235
