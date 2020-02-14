@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<h:outputScript library="js" name="localeCalendar.js" />
+	<title>Usuario 6</title>
+</h:head>
+<h:body>
+	<h:form>
+		<p:messages id="mensaje" closable="true">
+			<p:autoUpdate />
+		</p:messages>
+		<p:fieldset legend="Datos Personales">
+			<h:panelGrid id="pgPerso" columns="3">
+				<p:outputLabel for="txtNombre">Nombre</p:outputLabel>
+				<p:inputText id="txtNombre" value="#{usuarioController.persona.nombre}" required="true" requiredMessage="Rellene Nombre"/>
+				<p:message for="txtNombre"/>
+				
+				<p:outputLabel for="txtApellidos">Apellidos</p:outputLabel>
+				<p:inputText id="txtApellidos" value="#{usuarioController.persona.apellidos}" required="true" requiredMessage="Rellene Apellidos"/>
+				<p:message for="txtApellidos"/>
+				
+				<p:outputLabel for="radioSexo">Sexo</p:outputLabel>
+				<p:selectOneRadio id="radioSexo" value="#{usuarioController.persona.sexo}" required="true" requiredMessage="Rellene Sexo">
+					<f:selectItem itemValue="M" itemLabel="MASCULINO"/>
+					<f:selectItem itemValue="F" itemLabel="FEMENINO"/>
+				</p:selectOneRadio>
+				<p:message for="radioSexo"/>
+				
+				<p:outputLabel for="calFechaNac">Fecha Nacimiento</p:outputLabel>
+				<p:calendar id="calFechaNac" locale="es" pattern="dd/MM/yyyy" value="#{usuarioController.persona.fechaNacimiento}" 
+					required="true" label="Rellene Fecha"
+				/>
+				<p:message for="calFechaNac"/>
+			</h:panelGrid>
+			<!--
+				También podemos añadir la etiqueta (id de la etiqueta) p:messages en el update
+			 	para que lo fuerze a actualizar con AJAX
+			 -->
+			<p:commandButton icon="ui-icon-check" value="Registrar" update="pgPerso, pgCuenta" actionListener="#{usuarioController.registrar}"/>
+		</p:fieldset>
+		<p:fieldset legend="Datos de la Cuenta">
+			<h:panelGrid id="pgCuenta" columns="3">
+				<p:outputLabel for="selectCuenta">Tipo de Cuenta</p:outputLabel>
+				<p:selectOneMenu id="selectCuenta" value="#{usuarioController.usuario.tipo}" required="true" requiredMessage="Seleccione Tipo Cuenta">
+					<f:selectItem itemDisabled="true" itemLabel="Seleccione Tipo Cuenta"/>
+					<f:selectItem itemValue="A" itemLabel="Administrador"/>
+					<f:selectItem itemValue="O" itemLabel="Operario"/>
+				</p:selectOneMenu>
+				<p:message for="selectCuenta"/>
+			
+				<p:outputLabel for="txtUsuario">Usuario</p:outputLabel>
+				<p:inputText id="txtUsuario" value="#{usuarioController.usuario.usuario}" required="true" requiredMessage="Rellene Usuario"/>
+				<p:message for="txtUsuario"/>
+				
+				<p:outputLabel for="clave1">Clave</p:outputLabel>
+				<p:password id="clave1" value="#{usuarioController.usuario.clave}" required="true"
+					requiredMessage="Rellene Clave" validatorMessage="Las claves no coinciden" weakLabel="Débil"
+					strongLabel="Fuerte" match="clave2" feedback="true" promptLabel="Escriba una clave"
+				/>
+				<p:message for="clave1"/>
+				
+				<p:outputLabel for="clave2">Repetir Clave</p:outputLabel>
+				<p:password id="clave2" value="#{usuarioController.usuario.clave}" required="true"
+				requiredMessage="Rellene clave de repetición"/>
+				<p:message for="clave2"/>
+			</h:panelGrid>
+		</p:fieldset>
+	</h:form>
+</h:body>
+</html>

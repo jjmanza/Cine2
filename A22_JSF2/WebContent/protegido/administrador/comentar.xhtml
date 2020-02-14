@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+<body>
+	<ui:composition template="../../WEB-INF/templates/plantilla.xhtml"> <!-- definimos la plantilla sobre la que trabajamos -->
+	<ui:define name="title">Principal</ui:define> <!-- Definimos el encabezado -->
+	<ui:define name="content">
+		<h2>Comentar las tablas</h2> 
+			<h:form> <!-- iniciamos el formulario para recoger los diferentes datos-->
+				<p:dataTable value="#{comentarController.lNotas}" var="nota" row="5"  
+				paginator="true"
+              		paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                	rowsPerPageTemplate="5,10,15"><!-- coment1 -->
+                	<p:column headerText="Persona"> <!-- recoge los datos de la persona -->
+                		<h:outputText value="#{nota.persona.apellidos}, #{nota.persona.nombre}"/>
+                	</p:column>
+                	<p:column headerText="Categoria">
+                		<h:outputText value="#{nota.categoria.nombre}"/>
+                	</p:column>
+					<p:column headerText="Fecha">
+                		<h:outputText value="#{nota.fecha}">
+                			<f:convertDateTime pattern="dd/MM/yyyy"/> <!--pattern como deber ser el formato de la fecha  -->
+                		</h:outputText>
+                	</p:column>
+                	<p:column headerText="Valorar">
+                		<p:commandLink value="Valorar" action="#{comentarController.valorar(nota)}"/>
+                		<p:commandLink action="#{comentarController.valorar(nota)}"> 
+                			<p:graphicImage library="images" name="sol.png" title="Rating" width="40" height="40"/> <!-- aqui mostramos el icono para valorar la nota -->
+                		</p:commandLink>
+                	</p:column>
+				</p:dataTable>
+		</h:form> 
+	</ui:define>
+	</ui:composition>
+</body>
+</html>
+
+
+<!-- Coment1
+	
+	value  = controlardor que ejecutaremos y metodo que utilizamos al recoger las notas
+	var = variable que recogemos los datos.
+	row = numero de filas que tendra la tabla
+	
+	paginator = ejemplo de paginacion para una presentacion mas adecuada de los datos.
+ -->
+ 
+ <!-- graphicImage library  = carpeta donde buscara el recurso, 
+ name = nombre del recurso
+ title = titulo al lado del icono-->
+
+

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Usuario Login</title>
+</h:head>
+<h:body>
+	<h:form>
+		<p:messages for="loginMensaje" showDetail="true">
+			<p:autoUpdate/>
+		</p:messages>
+		<h:panelGrid id="loginUsuario" columns="2">
+			<p:outputLabel for="usuario">Usuario</p:outputLabel>
+			<p:inputText id="usuario" required="true" label="Usuario" value="#{loginController.usuario.usuario}"/>
+			<!--<p:message for="usuario"/>-->
+		
+			<p:outputLabel for="password">Clave</p:outputLabel>
+			<p:password id="password" required="true" label="Clave" value="#{loginController.usuario.clave}"/>
+			<!--<p:message for="password"/>-->
+		</h:panelGrid>		
+		<p:commandButton icon="ui-icon-key" value="Iniciar Sesion" update="loginUsuario" action="#{loginController.login}"/>
+	</h:form>
+	<p:separator/>
+	<p:link outcome="usuario7" value="Crear Cuenta"/>
+</h:body>
+</html>

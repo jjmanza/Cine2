@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+<body>
+    <ui:composition template="../../WEB-INF/templates/plantilla.xhtml">
+        <ui:define name="title">Principal</ui:define>
+        <ui:define name="content">
+        	<h:form>
+       			<p:panel header="#{valorarController.nota.categoria.nombre}">
+				    <p:panelGrid columns="2">
+       					<h:outputText value="#{valorarController.nota.encabezado}" />
+       					<h:outputText value="#{valorarController.nota.cuerpo}" />
+       					<p:inputTextarea value="#{valorarController.nota.comentarioAdmin}"/>
+       					<p:rating value="#{nota.valor}" />
+       				</p:panelGrid>	
+       			</p:panel>
+				<p:commandButton value="Valorar" action="#{valorarController.valoracion}"/>
+        	</h:form>
+        </ui:define>
+    </ui:composition>
+</body>
+</html>

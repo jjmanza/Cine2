@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+/home/daweb/eclipse-workspace/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+35725945.index
+2706631590.index
+274333942.index
+2437049149.index
+2269772007.index
+2517034767.index

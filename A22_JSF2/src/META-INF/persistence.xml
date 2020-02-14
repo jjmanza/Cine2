@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<!-- Ponemos el tipo de transacion a JTA, con esto no nos hará falta abrir y cerrar una transacción -->
+	<persistence-unit name="Persistencia" transaction-type="JTA">
+		<jta-data-source>jdbc/A22_JSF</jta-data-source>
+		<!-- <exclude-unlisted-classes>false</exclude-unlisted-classes> -->
+		<class>modelo.Categoria</class>
+		<class>modelo.Menu</class>
+		<class>modelo.Persona</class>
+		<!-- <class>modelo.Persona</class> -->
+		<!-- <class>modelo.Usuario</class> -->
+		<!-- <class>modelo.Nota</class> -->
+		<!-- <class>modelo.Telefono</class> -->
+		<properties>
+			<!-- Lo ponemos de tipo validate para que solo pueda validar las entindades con la base de datos -->
+			<property name="javax.persistence.schema-generation.database.action" value="none" />
+			<property name="eclipselink.weaving" value="static" />
+			<property name="eclipselink.logging.level.sql" value="FINEST" />
+			<property name="eclipselink.logging.level" value="FINEST" />
+			<property name="eclipselink.logging.level.cache" value="FINEST" />
+		</properties>
+	</persistence-unit>
+</persistence>

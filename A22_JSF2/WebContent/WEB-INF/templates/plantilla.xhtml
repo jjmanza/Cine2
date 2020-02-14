@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <f:event listener="#{plantillaController.verificarSesion}"
+        type="preRenderView" />
+    <h:outputScript library="js" name="localeCalendar.js" />
+    <title><ui:insert name="title">Facelets Template</ui:insert></title>
+</h:head>
+<h:body>
+    <div id="top">
+        <ui:insert name="top">
+            <h:form>
+                <p:menubar model="#{menuController.model}"></p:menubar>
+                <p:commandButton
+                    actionListener="#{menuController.cerrarSesion}"
+                    value="cerrar"
+                    action="/index2?faces-redirect=true" />
+                <p:commandButton
+                    actionListener="#{menuController.cerrarSesion}"
+                    icon="ui-icon-power"
+                    action="/index2?faces-redirect=true" />
+            </h:form>
+        </ui:insert>
+    </div>
+    <div id="content" class="center_content">
+        <ui:insert name="content">
+           Aqui va el contenido de la página
+       </ui:insert>
+    </div>
+    <div id="bottom" style="text-align: center;">
+        <ui:insert name="bottom">
+            <p>Agenda de Notas</p>
+        </ui:insert>
+    </div>
+</h:body>
+</html>
