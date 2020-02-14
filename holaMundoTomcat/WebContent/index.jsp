@@ -19,7 +19,7 @@
 			ResultSet rs = stmt.executeQuery("select titulo,genero from PELICULAS");
 			out.println("<br>Conexion correcta");
 			while (rs.next()) {
-				out.println("<br>Pelicula: .m.m. asddwq " +  rs.getString("titulo")+ rs.getString("genero"));
+				out.println("<br>Pelicula: .m.m. asdassddwq " +  rs.getString("titulo")+ rs.getString("genero"));
 			}
 			rs.close();
 			stmt.close();
